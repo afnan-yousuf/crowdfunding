@@ -3,16 +3,15 @@ const { useNavigate } = require("react-router-dom");
 
 const AuthContext = createContext();
 
-const AuthProvider = ({children}) =>{
-
+export const AuthProvider = ({children}) =>{
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
-
+    
     const login = (username,password) =>{
         if(username == "admin" && password == "123"){
             setUser(username)
             localStorage.setItem("user",username)
-            navigate('/dashboard')
+           navigate('/dashboard')
         }
     }
 
